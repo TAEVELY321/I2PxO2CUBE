@@ -2,7 +2,7 @@
     {
         "id": "starlight-fairies",
         "year": "2025",
-        "tag": "전세계를 강타한 마법소녀들 !",
+        "tag": "정통 마법소녀 턴제 RPG !",
         "title": "Starlight Fairies",
         "icon" : "images/타이틀.png",
         "desc": "별빛의 힘을 빌려 세상을 구하는 소녀들의 모험. 'Fairies Series'의 첫 번째 이야기이자 BlossomGames의 야심작입니다.",
@@ -12,7 +12,7 @@
         "platform": "PC",
         "img": "images/타이틀.png",
         "screenshots": ["images/ingame1.png", "images/ingame2.png", "images/ingame3.png"],
-        "download_url": "https://store.onstove.com/ko",
+        "download_url": "https://taevely321.github.io/STARLIGHTFAIRIES_KR/",
         "links": [
             { "text": "상세 보기", "url": "#", "type": "primary" },
             { "text": "공식 사이트", "url": "https://taevely321.github.io/STARLIGHTFAIRIES_KR/", "type": "secondary" }
@@ -32,7 +32,6 @@
         "platform": "Mobile",
         "img": "images/KA/김성현의모험.png",
         "screenshots": ["images/KA/김성현의모험.png", "images/KA/김성현의모험.png"],
-        "download_url": "https://store.onstove.com/ko",
         "links": [
             { "text": "상세 보기", "url": "#", "type": "primary" }
         ],
@@ -42,8 +41,6 @@
             { "name": "박준서", "role": "프로그래머" },
             { "name": "최유진", "role": "사운드 디자인" }
         ]
-        
-
     },
     {
         "id": "kimsAd2",
@@ -58,7 +55,29 @@
         "platform": "Mobile",
         "img": "images/KA/김성현의모험2.png",
         "screenshots": ["images/KA/김성현의모험2.png", "images/KA/김성현의모험2.png"],
-        "download_url": "https://store.onstove.com/ko",
+        "links": [
+            { "text": "상세 보기", "url": "#", "type": "primary" }
+        ],
+        "leader": "이영상",
+        "members": [
+            { "name": "이효주", "role": "메인 아트" },
+            { "name": "박준서", "role": "프로그래머" },
+            { "name": "최유진", "role": "사운드 디자인" }
+        ]
+    },
+    {
+        "id": "kimsAd3",
+        "year": "2026",
+        "tag": "전설적인 게임의 차기작, 드디어 등장 !",
+        "title": "김성현의 모험 : 모험은 끝나지 않아",
+        "icon" : "images/KA/김성현의모험2.png",
+        "desc": "김성현은 전설의 인물입니다.",
+        "detail_desc": "여기에 아주 긴 게임 스토리나 특징을 적습니다.",
+        "release_date": "2028",
+        "team": "김성현",
+        "platform": "Mobile",
+        "img": "images/KA/김성현의모험2.png",
+        "screenshots": ["images/KA/김성현의모험2.png", "images/KA/김성현의모험2.png"],
         "links": [
             { "text": "상세 보기", "url": "#", "type": "primary" }
         ],

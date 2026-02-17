@@ -201,19 +201,6 @@ header.scrolled {
     flex-shrink: 0;
 }
 
-.game-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 30px;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-    color: white;
-    border-bottom-left-radius: 16px;
-    border-bottom-right-radius: 16px;
-    text-align: left;
-}
-
 /* [푸터] */
 footer {
     background-color: #111;
@@ -726,6 +713,7 @@ footer {
     background: white;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    cursor: pointer;
 }
 /* [간략 보기] 그리드 모드 이미지 영역 */
 .games-container.grid-mode .game-card-img {
@@ -749,7 +737,71 @@ footer {
     display: none; /* 간략 보기에서는 설명과 버튼 숨김 (이미지 느낌 강조) */
 }
 
+/* [메인 뉴스 카드 스타일 보완] */
+.news-thumb-wrapper {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background-color: #eee;
+}
 
+.news-thumb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 이미지가 박스를 꽉 채우도록 */
+    transition: transform 0.3s;
+}
+
+.news-card:hover .news-thumb-img {
+    transform: scale(1.05); /* 호버 시 확대 효과 */
+}
+
+/* [메인 게임 슬라이더 스타일 보완] */
+.game-banner {
+    /* 기존 스타일 유지하되, relative 포지션 필수 */
+    position: relative; 
+    min-width: 300px; /* 슬라이더에서 최소 너비 */
+    height: 450px;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-right: 20px; /* 카드 사이 간격 */
+}
+
+.game-banner-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 배경 이미지처럼 꽉 차게 */
+    transition: transform 0.5s;
+}
+
+.game-banner:hover .game-banner-bg {
+    transform: scale(1.03);
+}
+
+.game-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); /* 글씨 잘 보이게 그라데이션 */
+    color: white;
+    z-index: 2;
+    pointer-events: none; /* 오버레이가 클릭 방해하지 않도록 */
+}
+
+.game-overlay h3 {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.game-overlay p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
 /* 모바일 대응 */
 @media (max-width: 600px) {
     .apply-box { padding: 30px 20px; }

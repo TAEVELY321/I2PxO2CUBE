@@ -59,7 +59,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // 각 카드에 data-year 속성이 정상적으로 들어갑니다.
             return `
-                <div class="game-big-card ${isReverse}" data-year="${game.year}">
+                <div class="game-big-card ${isReverse}" data-year="${game.year}" 
+                     onclick="if(document.getElementById('games-list-container').classList.contains('grid-mode')) location.href='detail.html?id=${game.id}'">
+                    
                     <div class="game-card-img">
                         <img src="${game.img}" alt="${game.title}" class="game-actual-img">
                     </div>
@@ -148,5 +150,60 @@ document.addEventListener('DOMContentLoaded', () => {
             alert(`${document.getElementById('name').value}님의 지원서가 접수되었습니다!`);
             applyForm.reset();
         });
+    }
+
+    const mainNewsContainer = document.getElementById('main-news-container');
+    const mainGamesContainer = document.getElementById('main-games-container');
+
+    // 1. 메인 뉴스 로딩 (최신 3개만)
+    if (mainNewsContainer) {
+        fetch('news.json')
+            .then(response => response.json())
+            .then(data => {
+                // 최신순 정렬이 필요하다면 여기서 sort 가능 (현재는 json 순서대로)
+                const latestNews = data.slice(0, 3); // 앞에서 3개만 자름
+
+                mainNewsContainer.innerHTML = latestNews.map(news => `
+                    <article class="news-card" onclick="location.href='news_detail.html?id=${news.id}'">
+                        <div class="news-thumb-wrapper">
+                             ${news.img && news.img.includes('/') 
+                                ? `<img src="${news.img}" alt="${news.title}" class="news-thumb-img">` 
+                                : `<div class="img-placeholder news-thumb">[이미지 없음]</div>`
+                             }
+                        </div>
+                        <div class="news-info">
+                            <div class="news-cat">${getCategoryNameGlobal(news.category)}</div>
+                            <h3 class="news-title">${news.title}</h3>
+                            <p class="news-date">${news.date}</p>
+                        </div>
+                    </article>
+                `).join('');
+            })
+            .catch(error => console.error('메인 뉴스 로딩 실패:', error));
+    }
+
+    // 2. 메인 게임 슬라이더 로딩 (전체 표시)
+    if (mainGamesContainer) {
+        fetch('games.json')
+            .then(response => response.json())
+            .then(data => {
+                // 게임 데이터를 순회하며 HTML 생성
+                mainGamesContainer.innerHTML = data.map(game => `
+                    <div class="game-banner" onclick="location.href='detail.html?id=${game.id}'">
+                        <img src="${game.img}" alt="${game.title}" class="game-banner-bg">
+                        <div class="game-overlay">
+                            <h3>${game.title}</h3>
+                            <p>${game.platform} / ${game.release_date}</p>
+                        </div>
+                    </div>
+                `).join('');
+            })
+            .catch(error => console.error('메인 게임 로딩 실패:', error));
+    }
+
+    // [헬퍼 함수] 카테고리 이름 변환 (메인 페이지용)
+    function getCategoryNameGlobal(cat) {
+        const names = { 'notice': '공지사항', 'dev': '개발일지', 'event': '이벤트' };
+        return names[cat] || cat;
     }
 });
