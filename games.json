@@ -1,5 +1,26 @@
 [
     {
+        "id": "OFY_Research",
+        "year": "2025",
+        "tag": "2025 컨퍼런스논문(한국정보보호학회 2025년 동계학술대회)",
+        "title": "CNN 기반 게임 내 가격 정책별 소비 패턴 분석",
+        "icon" : "images/2025/OFY_Research.jpg",
+        "desc": "추가예정",
+        "detail_desc": "추가예정",
+        "release_date": "2025",
+        "team": "OFY Studio",
+        "platform": "연구논문",
+        "img": "images/2025/OFY_Research.jpg",
+        "download_url": "https://drive.google.com/file/d/1I96KjvWKUI2VY3lGEHO8tdKIO9uWlFfr/view?usp=sharing",
+        "links": [
+            { "text": "상세 보기", "url": "#", "type": "primary" }
+        ],
+        "leader": "이영상",
+        "members": [
+            { "name": "최지욱", "role": "프로그래머" }
+        ]
+    },
+    {
         "id": "DeathGuider",
         "year": "2024",
         "tag": "2024 I2PxO2CUBE Project",
@@ -24,7 +45,6 @@
             { "name": "박광희", "role": "아트" },
             { "name": "이주원", "role": "아트" }
         ]
-
     },
     {
         "id": "바나나보드",
