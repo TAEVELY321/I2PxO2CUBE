@@ -1,28 +1,55 @@
 [
     {
+        "id": "starlight-fairies",
         "tag": "Turn-based JRPG",
         "title": "Starlight Fairies",
-        "desc": "별빛의 힘을 빌려 세상을 구하는 소녀들의 모험. 'Fairies Series'의 첫 번째 이야기이자 I2PxO2CUBE의 야심작입니다.",
+        "icon" : "images/타이틀.png",
+        "desc": "별빛의 힘을 빌려 세상을 구하는 소녀들의 모험. 'Fairies Series'의 첫 번째 이야기이자 BlossomGames의 야심작입니다.",
+        "detail_desc": "여기에 아주 긴 게임 스토리나 특징을 적습니다.",
+        "release_date": "2027년 예정",
+        "team": "BlossomGames",
+        "platform": "PC",
         "img": "images/타이틀.png",
+        "screenshots": ["images/ingame1.png", "images/ingame2.png", "images/ingame3.png"],
+        "download_url": "https://store.onstove.com/ko",
         "links": [
             { "text": "상세 보기", "url": "#", "type": "primary" },
             { "text": "공식 사이트", "url": "https://taevely321.github.io/STARLIGHTFAIRIES_KR/", "type": "secondary" }
         ]
+
     },
     {
-        "tag": "Action Adventure",
-        "title": "Project: Neo-Seoul",
-        "desc": "사이버펑크 서울을 배경으로 펼쳐지는 스타일리시 액션 게임입니다. 화려한 연출과 타격감을 경험하세요.",
-        "img": "[게임 메인 일러스트]",
+        "id": "kimsAd",
+        "tag": "정신병걸릴거 같은 게임",
+        "title": "김성현의 모험",
+        "icon" : "#",
+        "desc": "김성현은 전설의 인물입니다.",
+        "detail_desc": "여기에 아주 긴 게임 스토리나 특징을 적습니다.",
+        "release_date": "2028",
+        "team": "김성현",
+        "platform": "Mobile",
+        "img": "#",
+        "screenshots": ["#"],
+        "download_url": "https://store.onstove.com/ko",
         "links": [
             { "text": "상세 보기", "url": "#", "type": "primary" }
         ]
+        
+
     },
     {
-        "tag": "Action Adventure",
-        "title": "Project: Neo-Seoul",
-        "desc": "사이버펑크 서울을 배경으로 펼쳐지는 스타일리시 액션 게임입니다. 화려한 연출과 타격감을 경험하세요.",
-        "img": "[게임 메인 일러스트]",
+        "id": "kimsAd2",
+        "tag": "정신병걸릴거 같은 게임",
+        "title": "김성현의 모험 : 모험은 끝나지 않아",
+        "icon" : "#",
+        "desc": "김성현은 전설의 인물입니다.",
+        "detail_desc": "여기에 아주 긴 게임 스토리나 특징을 적습니다.",
+        "release_date": "2028",
+        "team": "김성현",
+        "platform": "Mobile",
+        "img": "#",
+        "screenshots": ["#"],
+        "download_url": "https://store.onstove.com/ko",
         "links": [
             { "text": "상세 보기", "url": "#", "type": "primary" }
         ]

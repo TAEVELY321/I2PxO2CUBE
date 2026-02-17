@@ -48,10 +48,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderGames(gamesData) {
         gamesContainer.innerHTML = gamesData.map((game, index) => {
             const isReverse = index % 2 !== 0 ? 'reverse' : '';
-            const buttonsHtml = game.links.map(link => `
-                <a href="${link.url}" class="btn-${link.type}">${link.text}</a>
-            `).join('');
-
+            // script.js 내 renderGames 함수 수정 부분
+            const buttonsHtml = game.links.map(link => {
+                if (link.text === "상세 보기") {
+                    // detail.html로 이동할 때 ?id=게임아이디 를 붙입니다.
+                    return `<a href="detail.html?id=${game.id}" class="btn-primary">상세 보기</a>`;
+                }
+                return `<a href="${link.url}" class="btn-secondary">${link.text}</a>`;
+            }).join('');
             return `
                 <div class="game-big-card ${isReverse}">
                     <div class="game-card-img">
