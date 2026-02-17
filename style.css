@@ -1,0 +1,678 @@
+/* [기본 설정: 폰트와 여백 초기화] */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* [유틸리티: 이미지 홀더 스타일] */
+.img-placeholder {
+    background-color: #e0e0e0;
+    border: 2px dashed #999;
+    color: #555;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* [헤더 네비게이션] */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 40px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    color: white; /* 초기 상태: 흰색 글씨 */
+}
+
+/* 스크롤 되었을 때 JS가 붙여줄 클래스 */
+header.scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #333; /* 스크롤 후: 검은 글씨 */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 15px 40px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.gnb {
+    display: flex;
+    gap: 30px;
+}
+
+.gnb li a {
+    font-weight: 600;
+    font-size: 1rem;
+    transition: opacity 0.3s;
+}
+.gnb li a:hover { opacity: 0.7; }
+
+/* [메인 히어로 섹션] */
+.hero-section {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.hero-bg {
+    width: 100%;
+    height: 100%;
+    background-color: #333; /* 임시 배경색 */
+    border: none;
+}
+
+.hero-content {
+    position: absolute;
+    bottom: 100px;
+    left: 60px;
+    color: white;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    z-index: 10;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.hero-desc {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+/* [뉴스 섹션] */
+.news-section {
+    padding: 80px 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 40px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.more-btn {
+    font-size: 1rem;
+    font-weight: 600;
+    border-bottom: 2px solid currentColor;
+    padding-bottom: 2px;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.news-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+.news-card:hover {
+    transform: translateY(-10px);
+}
+
+.news-thumb {
+    width: 100%;
+    height: 200px;
+}
+
+.news-info {
+    padding: 20px;
+}
+
+.news-cat {
+    font-size: 0.8rem;
+    color: #007bff;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.news-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.news-date {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* [게임 쇼케이스 섹션] */
+.games-section {
+    background-color: #fff;
+    padding: 80px 60px;
+}
+
+.games-slider {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 20px;
+}
+
+.game-banner {
+    min-width: 400px;
+    height: 500px;
+    border-radius: 16px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.game-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    text-align: left;
+}
+
+/* [푸터] */
+footer {
+    background-color: #111;
+    color: #888;
+    padding: 60px;
+    text-align: center;
+}
+
+/* =========================================
+   [뉴스 페이지 전용 스타일] (아래 내용을 추가하세요)
+   ========================================= */
+
+/* 페이지 상단 타이틀 영역 */
+.page-header {
+    background-color: #333; /* 임시 배경색 (나중에 이미지로 교체 가능) */
+    color: white;
+    padding: 120px 20px 60px; /* 헤더 높이만큼 위쪽 여백 */
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.news-container {
+    max-width: 1000px;
+    margin: 0 auto; /* 가운데 정렬 */
+    padding: 60px 20px;
+}
+
+/* 탭 버튼 스타일 */
+.news-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.tab-btn {
+    padding: 10px 25px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.tab-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* 선택된 탭 강조 (파란색) */
+.tab-btn.active {
+    background-color: #333;
+    color: white;
+    border-color: #333;
+}
+
+/* 뉴스 리스트 스타일 */
+.news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.news-item {
+    display: flex;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.news-item:hover {
+    transform: translateY(-5px); /* 호버 시 살짝 뜸 */
+}
+
+.news-thumb-small {
+    width: 280px;
+    height: 180px;
+    flex-shrink: 0; /* 이미지 크기 고정 */
+}
+
+.news-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.news-tag {
+    font-size: 0.8rem;
+    color: #007bff;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.news-subject {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.news-desc {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    /* 두 줄 이상 넘어가면 ... 처리 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.news-date {
+    font-size: 0.85rem;
+    color: #999;
+    margin-top: auto; /* 날짜를 바닥에 붙임 */
+}
+
+/* 모바일 대응 (화면이 작아지면 세로로 배치) */
+@media (max-width: 768px) {
+    .news-item {
+        flex-direction: column;
+    }
+    .news-thumb-small {
+        width: 100%;
+        height: 200px;
+    }
+}
+
+/* =========================================
+   [게임 소개 페이지 전용 스타일]
+   ========================================= */
+
+.games-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 100px; /* 카드 사이 간격 */
+}
+
+.game-big-card {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* 짝수 번째 카드는 좌우 반전 (호요버스 스타일) */
+.game-big-card.reverse {
+    flex-direction: row-reverse;
+}
+
+.game-card-img {
+    flex: 1.5;
+    height: 400px;
+    border-radius: 15px;
+    border: none;
+    background-color: #eee;
+}
+
+.game-card-info {
+    flex: 1;
+}
+
+.game-card-tag {
+    color: #007bff;
+    font-weight: 800;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.game-card-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.game-card-desc {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* 버튼 공통 스타일 */
+.game-card-btns {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background-color: #333;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #000;
+}
+
+.btn-secondary {
+    border: 1px solid #333;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background-color: #f4f4f4;
+}
+
+/* 모바일 대응 */
+@media (max-width: 968px) {
+    .game-big-card, .game-big-card.reverse {
+        flex-direction: column;
+        padding: 20px;
+    }
+    .game-card-img {
+        width: 100%;
+        height: 250px;
+    }
+}
+
+/* =========================================
+   [동아리 소개 페이지 전용 스타일]
+   ========================================= */
+
+.about-section {
+    padding: 100px 20px;
+    background-color: white;
+}
+
+.about-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.sub-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 60px;
+    position: relative;
+    display: inline-block;
+}
+
+.sub-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 4px;
+    background-color: #333;
+}
+
+.gray-bg { background-color: #f9f9f9; }
+
+/* 비전 아이템 */
+.vision-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.vision-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #007bff;
+}
+
+/* 타임라인 연혁 */
+.timeline {
+    text-align: left;
+    border-left: 2px solid #ddd;
+    padding-left: 30px;
+    margin-left: 20px;
+}
+
+.history-item {
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.history-item::before {
+    content: '';
+    position: absolute;
+    left: -37px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    background: #333;
+    border-radius: 50%;
+}
+
+.year {
+    font-weight: 900;
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* 팀 그리드 */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.team-card {
+    background: #f4f4f4;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.team-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    font-size: 0.8rem;
+}
+
+.team-card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.team-card p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+    .vision-box, .team-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================
+   [지원하기 페이지 전용 스타일]
+   ========================================= */
+
+.apply-container {
+    padding: 80px 20px;
+    background-color: #f4f7f9;
+}
+
+.apply-box {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
+.form-section {
+    margin-bottom: 40px;
+}
+
+.form-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.input-group label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.input-group input, 
+.input-group textarea {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus, 
+.input-group textarea:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* 라디오 버튼 스타일 */
+.radio-group {
+    display: flex;
+    gap: 20px;
+}
+
+.radio-item {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 18px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #000;
+}
+
+/* 모바일 대응 */
+@media (max-width: 600px) {
+    .apply-box { padding: 30px 20px; }
+    .input-row { grid-template-columns: 1fr; }
+    .radio-group { flex-direction: column; gap: 10px; }
+}

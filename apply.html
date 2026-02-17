@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I2PxO2CUBE - 지원하기</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header id="main-header" class="scrolled">
+        <div class="logo"><a href="index.html">I2PxO2CUBE</a></div>
+        <ul class="gnb">
+            <li><a href="news.html">뉴스</a></li>
+            <li><a href="games.html">게임 소개</a></li>
+            <li><a href="about.html">동아리 소개</a></li>
+            <li><a href="apply.html" class="active">지원하기</a></li>
+        </ul>
+        <div class="user-menu"><a href="#">KR / EN</a></div>
+    </header>
+
+    <div class="page-header apply-bg">
+        <h1>JOIN US</h1>
+        <p>I2PxO2CUBE와 함께 새로운 세계를 창조할 부원을 찾습니다.</p>
+    </div>
+
+    <section class="apply-container">
+        <div class="apply-box">
+            <form id="applyForm">
+                <div class="form-section">
+                    <h3 class="form-title">기본 정보</h3>
+                    <div class="input-group">
+                        <label for="name">이름</label>
+                        <input type="text" id="name" name="name" placeholder="이름을 입력하세요" required>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="studentId">학번</label>
+                            <input type="text" id="studentId" name="studentId" placeholder="예: 22학번" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="major">학과</label>
+                            <input type="text" id="major" name="major" placeholder="전공 학과" required>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="phone">연락처</label>
+                        <input type="tel" id="phone" name="phone" placeholder="010-0000-0000" required>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3 class="form-title">지원 분야</h3>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="position" value="plan" required>
+                            <span>기획 & 운영</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="position" value="dev">
+                            <span>프로그래밍</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="position" value="art">
+                            <span>아트 & 디자인</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3 class="form-title">자기소개 및 포트폴리오</h3>
+                    <div class="input-group">
+                        <label for="motivation">지원 동기 및 포부</label>
+                        <textarea id="motivation" name="motivation" rows="5" placeholder="동아리에 지원하게 된 이유를 적어주세요" required></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label for="portfolio">포트폴리오 링크 (GitHub, Notion 등)</label>
+                        <input type="url" id="portfolio" name="portfolio" placeholder="https://...">
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">지원서 제출하기</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; I2PxO2CUBE. Game contents are property of their respective owners.</p>
+        <p>홍익대학교 세종캠퍼스 게임개발 동아리 I2PxO2CUBE</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
