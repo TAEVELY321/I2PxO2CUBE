@@ -43,6 +43,20 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('team').innerText = game.team || 'I2PxO2CUBE';
         document.getElementById('platform').innerText = game.platform || 'PC';
             
+        // [추가] 팀장 정보 매칭
+        const leaderEl = document.getElementById('game-leader');
+        if (leaderEl) leaderEl.innerText = game.leader || '-';
+
+        // [추가] 팀원 리스트 생성
+        const memberContainer = document.getElementById('member-list');
+        if (memberContainer && game.members) {
+            memberContainer.innerHTML = game.members.map(member => `
+                <div class="member-item" style="display: flex; justify-content: space-between; margin-top: 12px; font-size: 0.9rem;">
+                    <span style="color: #888;">${member.role}</span>
+                    <strong style="color: #333;">${member.name}</strong>
+                </div>
+            `).join('');
+        }
 
         // 스크린샷 렌더링
         const screenshotContainer = document.getElementById('screenshot-grid');

@@ -41,6 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(response => response.json())
             .then(data => {
                 renderGames(data);
+                // 반드시 데이터를 다 그린 후에 필터 기능을 실행해야 합니다!
+                initGameYearFilters(); 
             })
             .catch(error => console.error('게임 정보 로딩 실패:', error));
     }
@@ -48,16 +50,16 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderGames(gamesData) {
         gamesContainer.innerHTML = gamesData.map((game, index) => {
             const isReverse = index % 2 !== 0 ? 'reverse' : '';
-            // script.js 내 renderGames 함수 수정 부분
             const buttonsHtml = game.links.map(link => {
                 if (link.text === "상세 보기") {
-                    // detail.html로 이동할 때 ?id=게임아이디 를 붙입니다.
                     return `<a href="detail.html?id=${game.id}" class="btn-primary">상세 보기</a>`;
                 }
                 return `<a href="${link.url}" class="btn-secondary">${link.text}</a>`;
             }).join('');
+
+            // 각 카드에 data-year 속성이 정상적으로 들어갑니다.
             return `
-                <div class="game-big-card ${isReverse}">
+                <div class="game-big-card ${isReverse}" data-year="${game.year}">
                     <div class="game-card-img">
                         <img src="${game.img}" alt="${game.title}" class="game-actual-img">
                     </div>
@@ -65,9 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="game-card-tag">${game.tag}</div>
                         <h2 class="game-card-title">${game.title}</h2>
                         <p class="game-card-desc">${game.desc}</p>
-                        <div class="game-card-btns">
-                            ${buttonsHtml}
-                        </div>
+                        <div class="game-card-btns">${buttonsHtml}</div>
                     </div>
                 </div>
             `;
@@ -77,7 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const gamesList = document.getElementById('games-list-container');
 
         if (btnDetail && btnGrid) {
-            // 상세 보기 클릭 시
             btnDetail.addEventListener('click', () => {
                 btnDetail.classList.add('active');
                 btnGrid.classList.remove('active');
@@ -85,7 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 gamesList.classList.add('detail-mode');
             });
 
-            // 간략 보기 클릭 시
             btnGrid.addEventListener('click', () => {
                 btnGrid.classList.add('active');
                 btnDetail.classList.remove('active');
@@ -94,7 +92,31 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
-    
+    // 게임 연도 필터링 로직 (뉴스 페이지 로직과 동일한 방식)
+    function initGameYearFilters() {
+        // .year-tab-btn에서 .tab-btn으로 선택자를 변경합니다
+        const yearBtns = document.querySelectorAll('.news-tabs .tab-btn'); 
+        const gameItems = document.querySelectorAll('.game-big-card');
+
+        yearBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // 버튼 활성화 상태 변경 (디자인 적용)
+                yearBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-year-filter');
+
+                gameItems.forEach(item => {
+                    // 필터링 로직
+                    if (filter === 'all' || item.dataset.year === filter) {
+                        item.style.display = 'flex';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    }
 
     // 카테고리 영문을 한글로 바꿔주는 기능
     function getCategoryName(cat) {

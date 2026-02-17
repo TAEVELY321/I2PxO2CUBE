@@ -1,7 +1,8 @@
 [
     {
         "id": "starlight-fairies",
-        "tag": "Turn-based JRPG",
+        "year": "2025",
+        "tag": "전세계를 강타한 마법소녀들 !",
         "title": "Starlight Fairies",
         "icon" : "images/타이틀.png",
         "desc": "별빛의 힘을 빌려 세상을 구하는 소녀들의 모험. 'Fairies Series'의 첫 번째 이야기이자 BlossomGames의 야심작입니다.",
@@ -20,6 +21,7 @@
     },
     {
         "id": "kimsAd",
+        "year": "2026",
         "tag": "정신병걸릴거 같은 게임",
         "title": "김성현의 모험",
         "icon" : "images/KA/김성현의모험.png",
@@ -33,12 +35,19 @@
         "download_url": "https://store.onstove.com/ko",
         "links": [
             { "text": "상세 보기", "url": "#", "type": "primary" }
+        ],
+        "leader": "김성현",
+        "members": [
+            { "name": "이효주", "role": "메인 아트" },
+            { "name": "박준서", "role": "프로그래머" },
+            { "name": "최유진", "role": "사운드 디자인" }
         ]
         
 
     },
     {
         "id": "kimsAd2",
+        "year": "2026",
         "tag": "전설적인 게임의 차기작, 드디어 등장 !",
         "title": "김성현의 모험 : 모험은 끝나지 않아",
         "icon" : "images/KA/김성현의모험2.png",
@@ -52,6 +61,12 @@
         "download_url": "https://store.onstove.com/ko",
         "links": [
             { "text": "상세 보기", "url": "#", "type": "primary" }
+        ],
+        "leader": "이영상",
+        "members": [
+            { "name": "이효주", "role": "메인 아트" },
+            { "name": "박준서", "role": "프로그래머" },
+            { "name": "최유진", "role": "사운드 디자인" }
         ]
     }
 ]
