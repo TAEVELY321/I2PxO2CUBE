@@ -74,6 +74,7 @@ header.scrolled {
 /* [메인 히어로 섹션] */
 .hero-section {
     width: 100%;
+    aspect-ratio: 1920 / 1080;
     height: 100vh;
     position: relative;
 }
