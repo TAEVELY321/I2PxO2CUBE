@@ -1,0 +1,30 @@
+[
+    {
+        "tag": "Turn-based JRPG",
+        "title": "Starlight Fairies",
+        "desc": "별빛의 힘을 빌려 세상을 구하는 소녀들의 모험. 'Fairies Series'의 첫 번째 이야기이자 I2PxO2CUBE의 야심작입니다.",
+        "img": "images/타이틀.png",
+        "links": [
+            { "text": "상세 보기", "url": "#", "type": "primary" },
+            { "text": "공식 사이트", "url": "https://taevely321.github.io/STARLIGHTFAIRIES_KR/", "type": "secondary" }
+        ]
+    },
+    {
+        "tag": "Action Adventure",
+        "title": "Project: Neo-Seoul",
+        "desc": "사이버펑크 서울을 배경으로 펼쳐지는 스타일리시 액션 게임입니다. 화려한 연출과 타격감을 경험하세요.",
+        "img": "[게임 메인 일러스트]",
+        "links": [
+            { "text": "상세 보기", "url": "#", "type": "primary" }
+        ]
+    },
+    {
+        "tag": "Action Adventure",
+        "title": "Project: Neo-Seoul",
+        "desc": "사이버펑크 서울을 배경으로 펼쳐지는 스타일리시 액션 게임입니다. 화려한 연출과 타격감을 경험하세요.",
+        "img": "[게임 메인 일러스트]",
+        "links": [
+            { "text": "상세 보기", "url": "#", "type": "primary" }
+        ]
+    }
+]

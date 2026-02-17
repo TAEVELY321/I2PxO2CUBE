@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .catch(error => console.error('뉴스 로딩 실패:', error));
     }
-
     // 화면에 뉴스 카드를 그리는 함수
     function renderNews(newsData) {
         newsContainer.innerHTML = newsData.map(news => `
@@ -34,6 +33,64 @@ document.addEventListener('DOMContentLoaded', () => {
             </article>
         `).join('');
     }
+    // 3. 게임소개 데이터 로드 및 렌더링
+    const gamesContainer = document.getElementById('games-list-container');
+
+    if (gamesContainer) {
+        fetch('games.json')
+            .then(response => response.json())
+            .then(data => {
+                renderGames(data);
+            })
+            .catch(error => console.error('게임 정보 로딩 실패:', error));
+    }
+    //화면에 게임소개를 그리는 핵심함수
+    function renderGames(gamesData) {
+        gamesContainer.innerHTML = gamesData.map((game, index) => {
+            const isReverse = index % 2 !== 0 ? 'reverse' : '';
+            const buttonsHtml = game.links.map(link => `
+                <a href="${link.url}" class="btn-${link.type}">${link.text}</a>
+            `).join('');
+
+            return `
+                <div class="game-big-card ${isReverse}">
+                    <div class="game-card-img">
+                        <img src="${game.img}" alt="${game.title}" class="game-actual-img">
+                    </div>
+                    <div class="game-card-info">
+                        <div class="game-card-tag">${game.tag}</div>
+                        <h2 class="game-card-title">${game.title}</h2>
+                        <p class="game-card-desc">${game.desc}</p>
+                        <div class="game-card-btns">
+                            ${buttonsHtml}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+        const btnDetail = document.getElementById('btn-detail');
+        const btnGrid = document.getElementById('btn-grid');
+        const gamesList = document.getElementById('games-list-container');
+
+        if (btnDetail && btnGrid) {
+            // 상세 보기 클릭 시
+            btnDetail.addEventListener('click', () => {
+                btnDetail.classList.add('active');
+                btnGrid.classList.remove('active');
+                gamesList.classList.remove('grid-mode');
+                gamesList.classList.add('detail-mode');
+            });
+
+            // 간략 보기 클릭 시
+            btnGrid.addEventListener('click', () => {
+                btnGrid.classList.add('active');
+                btnDetail.classList.remove('active');
+                gamesList.classList.remove('detail-mode');
+                gamesList.classList.add('grid-mode');
+            });
+        }
+    }
+    
 
     // 카테고리 영문을 한글로 바꿔주는 기능
     function getCategoryName(cat) {
