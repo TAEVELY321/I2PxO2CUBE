@@ -803,6 +803,26 @@ footer {
     font-size: 0.9rem;
     opacity: 0.8;
 }
+/* 우측 상단 유저 메뉴 (SNS + 언어) 정렬 */
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* 아이콘 사이 간격 */
+}
+
+/* SNS 아이콘 스타일 */
+.sns-icon {
+    font-size: 1.3rem; /* 아이콘 크기 */
+    color: inherit;    /* 부모(헤더) 색상 따라감 */
+    transition: color 0.3s, transform 0.3s;
+    display: flex;     /* 아이콘 수직 중앙 정렬 */
+    align-items: center;
+}
+
+.sns-icon:hover {
+    color: #ddd;         /* 마우스 올렸을 때 색상 */
+    transform: scale(1.1); /* 살짝 커지는 효과 */
+}
 /* 모바일 대응 */
 @media (max-width: 600px) {
     .apply-box { padding: 30px 20px; }

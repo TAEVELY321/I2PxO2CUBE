@@ -30,12 +30,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 뉴스 카드 렌더링 함수
     function renderNews(newsData) {
-        newsContainer.innerHTML = newsData.map(news => `
+        newsContainer.innerHTML = newsData.map(news => {
+            // 1. 이미지가 있는지 확인 (경로에 '/'가 있는지로 간단 체크)
+            const hasImage = news.img && news.img.includes('/');
+
+            // 2. 이미지가 있으면 점선 클래스(img-placeholder)를 뺍니다.
+            const thumbClass = hasImage ? 'news-thumb-small' : 'img-placeholder news-thumb-small';
+
+            // 3. 내용물 결정 (이미지 태그 vs 텍스트)
+            const thumbContent = hasImage 
+                ? `<img src="${news.img}" alt="${news.title}">` 
+                : news.img;
+
+            return `
             <article class="news-item" data-category="${news.category}" 
                      onclick="location.href='news_detail.html?id=${news.id}'">
-                <div class="img-placeholder news-thumb-small">
-                    ${news.img.includes('/') ? `<img src="${news.img}" alt="thumbnail">` : news.img}
+                
+                <div class="${thumbClass}">
+                    ${thumbContent}
                 </div>
+
                 <div class="news-content">
                     <span class="news-tag">${getCategoryName(news.category)}</span>
                     <h3 class="news-subject">${news.title}</h3>
@@ -43,7 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span class="news-date">${news.date}</span>
                 </div>
             </article>
-        `).join('');
+            `;
+        }).join('');
     }
 
     // 탭 필터링 기능
