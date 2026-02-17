@@ -22,14 +22,14 @@
         "id": "kimsAd",
         "tag": "정신병걸릴거 같은 게임",
         "title": "김성현의 모험",
-        "icon" : "#",
+        "icon" : "images/KA/김성현의모험.png",
         "desc": "김성현은 전설의 인물입니다.",
         "detail_desc": "여기에 아주 긴 게임 스토리나 특징을 적습니다.",
         "release_date": "2028",
         "team": "김성현",
         "platform": "Mobile",
-        "img": "#",
-        "screenshots": ["#"],
+        "img": "images/KA/김성현의모험.png",
+        "screenshots": ["images/KA/김성현의모험.png", "images/KA/김성현의모험.png"],
         "download_url": "https://store.onstove.com/ko",
         "links": [
             { "text": "상세 보기", "url": "#", "type": "primary" }
@@ -39,16 +39,16 @@
     },
     {
         "id": "kimsAd2",
-        "tag": "정신병걸릴거 같은 게임",
+        "tag": "전설적인 게임의 차기작, 드디어 등장 !",
         "title": "김성현의 모험 : 모험은 끝나지 않아",
-        "icon" : "#",
+        "icon" : "images/KA/김성현의모험2.png",
         "desc": "김성현은 전설의 인물입니다.",
         "detail_desc": "여기에 아주 긴 게임 스토리나 특징을 적습니다.",
         "release_date": "2028",
         "team": "김성현",
         "platform": "Mobile",
-        "img": "#",
-        "screenshots": ["#"],
+        "img": "images/KA/김성현의모험2.png",
+        "screenshots": ["images/KA/김성현의모험2.png", "images/KA/김성현의모험2.png"],
         "download_url": "https://store.onstove.com/ko",
         "links": [
             { "text": "상세 보기", "url": "#", "type": "primary" }
